@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start vue</title>
+    <!-- <link rel="stylesheet" href="/theme.css"> -->
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <input 
+            type="text" 
+            :placeholder="placeholdertext" 
+            :value="inputValue"
+            @input="inputChange"
+            @keypress.enter="newListItem"
+        >
+        <button @click="newListItem">add</button>
+        <hr>
+        <ul class="list" v-if="listTasks.length !== 0">
+            <li class="list_item" v-for="(listOne, idx) in listTasks">
+                {{toUp(listOne)}}
+                <button class="delete_item" @click="delThisItem(idx)">del</button>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+</body>
+</html>
