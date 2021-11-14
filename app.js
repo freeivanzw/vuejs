@@ -8,9 +8,6 @@ Vue.createApp({
         }
     },
     methods: {
-        inputChange(e) {
-            this.inputValue = e.target.value
-        },
         newListItem() {
             if (this.inputValue != '') {
                 this.listTasks.push(this.inputValue);
@@ -22,6 +19,17 @@ Vue.createApp({
         },
         delThisItem(idx) {
             this.listTasks.splice(idx, 1)
+        },
+        
+    },
+    computed: {
+        doubleList() {
+            return this.listTasks.length * 2 
+        }
+    },
+    watch: {
+        inputValue(value) {
+            console.log(value)
         }
     }
 }).mount('#app')

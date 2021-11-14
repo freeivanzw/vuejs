@@ -9,22 +9,30 @@
 </head>
 <body>
     <div id="app">
-        <h1>{{title}}</h1>
+        <h1 :style="{
+            color: inputValue.length > 5 ? 'red' : '',
+            fontSize: inputValue.length > 5 ? '' : '20px',
+        }">{{title}}</h1>
         <input 
             type="text" 
             :placeholder="placeholdertext" 
-            :value="inputValue"
-            @input="inputChange"
+            v-model="inputValue"
             @keypress.enter="newListItem"
         >
-        <button @click="newListItem">add</button>
+        <button 
+            @click="newListItem"
+            :class="inputValue.length > 5 ? 'test' : ''"
+            >add</button>
         <hr>
-        <ul class="list" v-if="listTasks.length !== 0">
-            <li class="list_item" v-for="(listOne, idx) in listTasks">
+        <ul class="list"
+            v-if="listTasks.length !== 0">
+            <li class="list_item" 
+                v-for="(listOne, idx) in listTasks">
                 {{toUp(listOne)}}
                 <button class="delete_item" @click="delThisItem(idx)">del</button>
             </li>
         </ul>
+        <strong>Кількість пунктів: {{listTasks.length}}  || {{doubleList}}</strong>
     </div>
 
 
