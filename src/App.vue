@@ -14,9 +14,9 @@ import listOne from "@/components/list-one";
 export default {
 	data() {
 		return {
-			myListData: ["1", "2"
-				// {name:'ivan'},
-				// {name:'ruslan'}
+			myListData: [
+				{name:'ivan', finishItem: false},
+				{name:'ruslan', finishItem: false}
 			]
 		}
 	},
@@ -34,4 +34,9 @@ export default {
 	color: #2c3e50;
 	margin-top: 60px;
 }
+
+.hidden {
+	opacity: 0.5;
+}
+
 </style>
